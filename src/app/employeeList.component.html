@@ -6,15 +6,29 @@
       <th>Gender</th>
       <th>Annual Salary</th>
       <th>Date of Birth</th>
+      <th>Index</th>
+      <th>Is First</th>
+      <th>Is Last</th>
+      <th>Is even</th>
+      <th>Is odd</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let employee of employees;trackBy:trackByempCode">
+    <tr
+      *ngFor="let employee of employees;trackBy:trackByempCode
+      ;let
+      i=index;let isfirst=first;let islast=last;let iseven=even;let isodd=odd;"
+    >
       <td>{{employee.code}}</td>
       <td>{{employee.name}}</td>
       <td>{{employee.gender}}</td>
       <td>{{employee.annualSalary}}</td>
       <td>{{employee.dateOfBirth}}</td>
+      <td>{{i}}</td>
+      <td>{{isfirst}}</td>
+      <td>{{islast}}</td>
+      <td>{{iseven}}</td>
+      <td>{{isodd}}</td>
     </tr>
     <tr *ngIf="!employees || employees.length==0">
       <td colspan="5">No Employees to Display</td>
